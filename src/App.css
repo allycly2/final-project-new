@@ -1,0 +1,16 @@
+body {
+  background-color: #f1e9d9;
+  box-sizing: border-box;
+  margin: 0;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+h1 {
+  color: #000000;
+}
