@@ -1,5 +1,5 @@
 body {
-  background-color: #f1e9d9;
+  background-color: #f6ece3;
   box-sizing: border-box;
   margin: 0;
   height: 100vh;
@@ -8,9 +8,6 @@ body {
 .App {
   display: flex;
   flex-direction: row;
+  margin: 0;
   height: 100vh;
-}
-
-h1 {
-  color: #000000;
 }

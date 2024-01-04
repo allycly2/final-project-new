@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam");
+
+.navBar {
+  background-color: #c2a38f;
+  padding: 90px;
+  height: 100vh;
+}
+
+.logo {
+  font-family: "Kalam", cursive;
+  color: #452107;
+}
+
+.nav {
+  display: flex;
+}
