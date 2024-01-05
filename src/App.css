@@ -1,13 +1,88 @@
-body {
-  background-color: #f6ece3;
-  box-sizing: border-box;
-  margin: 0;
+/* .App {
+  text-align: center;
+}
+ */
+
+.App {
+  width: 100%;
   height: 100vh;
 }
 
-.App {
-  display: flex;
-  flex-direction: row;
+* {
   margin: 0;
-  height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu {
+  width: 100%;
+  height: 100%;
+}
+
+.Sidebar {
+  height: 100%;
+  width: 250px;
+  background: #e2af7b;
+}
+
+.SidebarList {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.SidebarList .row {
+  width: 100%;
+  height: 60px;
+  /* background-color: cadetblue; */
+  /* border: 1px solid black; */
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+
+  text-shadow: 2px 2px #d28952;
+}
+
+.SidebarList .row:hover {
+  cursor: pointer;
+  background-color: #d28952;
+}
+
+.SidebarList #active {
+  background-color: #d28952;
+}
+
+.row #icon {
+  flex: 30%;
+  display: grid;
+  place-items: center;
+}
+
+.row #title {
+  flex: 70%;
+}
+
+.sidebartitle {
+  text-align: center;
+  font-family: fantasy;
+  font-size: 1.2rem;
+  color: rgb(180, 106, 60);
+}
+
+.SidebarIcon {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.SidebarIcon img {
+  width: 100px;
+}
+
+.SidebarIcon p {
+  color: white;
+  text-shadow: 2px 2px #d28952;
+  font-weight: 600;
+  font-size: 13px;
 }
