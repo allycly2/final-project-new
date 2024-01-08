@@ -27,11 +27,8 @@ function MainApp() {
     if (accessToken) {
       // User is logged in
       setIsLoggedIn(true);
-    } else {
-      // User is not logged in, redirect to the login page
-      navigate("/login");
     }
-  }, [navigate]);
+  }, []);
 
   const handleLogout = () => {
     // Perform any logout-related actions (e.g., clear local storage, reset state)
