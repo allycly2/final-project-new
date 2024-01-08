@@ -110,11 +110,79 @@
   color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 1200px) {
+  .container {
+    display: flex;
+    background-size: contain;
+    background-repeat: inherit;
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .todolist {
+    position: absolute;
+    width: calc(100%-40px);
+    background-size: contain;
+    background-position: center;
+  }
+
+  .todotext,
+  .ToDoButton,
+  .tasknum {
+    position: relative;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+}
+
+@media only screen and (max-width: 700px) and (min-width: 0px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    background-size: contain;
+    background-repeat: inherit;
+    width: 100%;
+  }
+  .todolist {
+    margin: 0 auto;
+    margin-top: -35rem;
+    position: relative;
+    height: 50%;
+    width: 80%;
+    background-size: contain;
+    background-position: center;
+  }
+  hr {
+    margin: 0 auto;
+    width: 30%;
+  }
+  .wrapper {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
   }
 }
