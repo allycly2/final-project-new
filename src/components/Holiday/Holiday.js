@@ -5,7 +5,7 @@ import HolidayCalendar from "./HolidayCalendar";
 import axios from "axios";
 import "./Holiday.css";
 import Sidebar from "../NavBar/Sidebar";
-import backgroundImage from "../Image/image.png";
+import backgroundImage from "../Image/bkimage4.png";
 
 const HolidayTest = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -87,12 +87,7 @@ const HolidayTest = () => {
   };
 
   return (
-    <div className="holiday-container">
-      <div
-        Style={{
-          backgroundImage: "{image}",
-        }}
-      ></div>
+    <div className="holiday-container" style={styles}>
       <div className="navigation">
         <Sidebar />
       </div>
@@ -104,17 +99,6 @@ const HolidayTest = () => {
             <h4 className="holiday-content">
               Discover holidays from around the world.
             </h4>
-          </div>
-          <div className="holiday-img">
-            <img
-              className="holiday-img2"
-              src="https://static.vecteezy.com/system/resources/thumbnails/009/301/040/small/white-cloud-clipart-design-illustration-free-png.png"
-            ></img>
-
-            <img
-              className="holiday-img1"
-              src="https://i.pinimg.com/originals/54/d3/ae/54d3ae04cae803cafc21389dfd31fc88.gif"
-            ></img>
           </div>
         </div>
 

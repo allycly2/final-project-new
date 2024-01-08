@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import backgroundImage from "../Image/bkimage.png";
+import { v4 as uuidv4 } from "uuid";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -11,6 +13,8 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const accountId = uuidv4();
 
     // Validate field lengths
     if (name.length > 30) {
@@ -48,6 +52,10 @@ const Signup = () => {
     }
   };
 
+  const styles = {
+    backgroundImage: `url(${backgroundImage})`,
+  };
+
   return (
     <div className="signup-form-container">
       <ul class="circles">
@@ -63,10 +71,16 @@ const Signup = () => {
         <li></li>
       </ul>
 
-      <form className="signup-form" onSubmit={handleSubmit}>
+      <form className="signup-form" style={styles} onSubmit={handleSubmit}>
         <div>
           <h1 className="logo">Great Plan</h1>
         </div>
+        {showAlert && (
+          <div className="signup-redirect">
+            <p>Signup successful!</p>
+            <p>Redirecting to the login page...</p>
+          </div>
+        )}
         <div className="signup-header">
           <h2>Signup</h2>
         </div>
@@ -96,12 +110,6 @@ const Signup = () => {
         <div className="signup-text">
           Already have an account? <a href="/login">Login here</a>
         </div>
-        {showAlert && (
-          <div className="signup-redirect">
-            <p>Signup successful!</p>
-            <p>Redirecting to the login page...</p>
-          </div>
-        )}
       </form>
     </div>
   );

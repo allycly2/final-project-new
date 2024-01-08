@@ -4,27 +4,73 @@ import DiaryForm from "../Diary/DiaryForm";
 import { addItem, deleteItem } from "../Diary/redux/action";
 import DiaryItem from "../Diary/DiaryItem";
 import { Modal } from "react-bootstrap";
+import { v4 as uuidv4 } from "uuid";
 
 export class Main extends Component {
   constructor() {
     super();
+    const storedItems = localStorage.getItem("diaryItems");
     this.state = {
-      diaryItems: [],
+      diaryItems: storedItems ? JSON.parse(storedItems) : [],
       hoveredItemId: null,
     };
   }
 
   addItem = (item) => {
-    this.setState((prevState) => ({
-      diaryItems: [...prevState.diaryItems, item],
-    }));
+    const newItem = {
+      id: uuidv4(),
+      ...item,
+    };
+
+    this.setState(
+      (prevState) => ({
+        diaryItems: [...prevState.diaryItems, newItem],
+      }),
+      () => {
+        localStorage.setItem(
+          "diaryItems",
+          JSON.stringify(this.state.diaryItems)
+        );
+
+        // Check if the data is successfully stored
+        const storedItems = localStorage.getItem("diaryItems");
+        if (storedItems) {
+          const storedData = JSON.parse(storedItems);
+          const isItemStored = storedData.some(
+            (storedItem) => storedItem.id === newItem.id
+          );
+          if (isItemStored) {
+            console.log("Data successfully stored!");
+          } else {
+            console.log("Failed to store data!");
+          }
+        } else {
+          console.log("Failed to store data!");
+        }
+      }
+    );
   };
 
   deleteItem = (id) => {
-    this.setState((prevState) => ({
-      diaryItems: prevState.diaryItems.filter((item) => item.id !== id),
-    }));
+    this.setState(
+      (prevState) => ({
+        diaryItems: prevState.diaryItems.filter((item) => item.id !== id),
+      }),
+      () => {
+        localStorage.setItem(
+          "diaryItems",
+          JSON.stringify(this.state.diaryItems)
+        );
+      }
+    );
   };
+
+  componentDidMount() {
+    const storedItems = localStorage.getItem("diaryItems");
+    if (storedItems) {
+      this.setState({ diaryItems: JSON.parse(storedItems) });
+    }
+  }
 
   render() {
     const { diaryItems } = this.state;
@@ -69,7 +115,9 @@ export class Main extends Component {
                 );
               })
             ) : (
-              <h1>No Items</h1>
+              <h3 className="diary-item-box">
+                No record found. Try adding one!
+              </h3>
             )}
           </div>
         </div>

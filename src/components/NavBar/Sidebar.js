@@ -1,25 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { SidebarData } from "./SidebarData";
 import SidebarIcon from "./SidebarIcon";
+import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 function Sidebar() {
+  const [showSidebar, setShowSidebar] = useState(false);
+  const accessToken = localStorage.getItem("access_token");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Perform any logout-related actions (e.g., clear local storage, reset state)
+    localStorage.removeItem("access_token");
+    navigate("/login");
+  };
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   return (
-    <div className="menu">
+    <div className={`menu ${showSidebar ? "show" : ""}`}>
       <div className="Sidebar">
         <div className="sidebartitle">
-          <br></br>Great Plan
+          <br />
+          Great Plan
         </div>
-        <SidebarIcon />
+        <SidebarIcon onClick={toggleSidebar} />
         <ul className="SidebarList">
           {SidebarData.map((value, key) => {
+            if (value.title === "Login") {
+              return (
+                <li
+                  key={key}
+                  id={window.location.pathname === value.link ? "active" : ""}
+                  className="row"
+                  onClick={() => {
+                    accessToken ? handleLogout() : navigate(value.link);
+                  }}
+                >
+                  <div id="icon">{value.icon}</div>
+                  <div id="title">{accessToken ? "Logout" : value.title}</div>
+                </li>
+              );
+            }
+
             return (
               <li
                 key={key}
-                id={window.location.pathname == value.link ? "active" : ""}
+                id={window.location.pathname === value.link ? "active" : ""}
                 className="row"
                 onClick={() => {
-                  window.location.pathname = value.link;
+                  navigate(value.link);
                 }}
               >
                 <div id="icon">{value.icon}</div>
@@ -28,6 +60,11 @@ function Sidebar() {
             );
           })}
         </ul>
+      </div>
+      <div className="hamburger" onClick={toggleSidebar}>
+        <div className={`line ${showSidebar ? "open" : ""}`}></div>
+        <div className={`line ${showSidebar ? "open" : ""}`}></div>
+        <div className={`line ${showSidebar ? "open" : ""}`}></div>
       </div>
     </div>
   );

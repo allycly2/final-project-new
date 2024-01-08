@@ -7,11 +7,6 @@
   display: flex;
 }
 
-.logo {
-  font-family: "Kalam", cursive;
-  color: #452107;
-}
-
 .nav {
   display: flex;
 }

@@ -1,50 +1,73 @@
-.expense-container {
-  display: flex;
+body {
+  height: 100%;
 }
 
+.expense-main-container {
+  display: flex;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+}
+
+.expense-content-container {
+  display: flex;
+  flex-direction: column;
+  margin: 4% 5%;
+  width: 100%;
+  height: 100%;
+}
 .expense-h4 {
   font-weight: 400;
   padding-bottom: 40px;
   padding-top: 40px;
 }
 
-.event-content-container {
-  display: flex;
-  flex-direction: column;
-  padding: 0 4%;
-  width: 80%;
-}
-
 .expense-content {
   display: flex;
-  flex-direction: row;
-  height: 100vh;
+  flex-direction: column;
   margin: 10px 0;
   column-gap: 30px;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-.expense-left {
+.expense-section-one {
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
+}
+.expense-item-one {
   width: 50%;
-  background-color: #fff;
+  background-color: #ffffffad;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 60px;
+  padding: 50px;
   text-align: center;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 }
 
-.expense-right {
+.expense-item-two {
   width: 50%;
-  background-color: #fff;
+  background-color: #ffffffad;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 60px;
+  padding: 50px;
+  font-size: 18px;
 }
 
-.expense-head {
-  padding: 10% 0;
+.expense-item-three {
+  background-color: #ffffffad;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 50px;
+  font-size: 18px;
+  margin: 40px 0;
+}
+
+.balance {
+  padding: 12% 0;
 }
 
 .expense-header {
@@ -58,14 +81,42 @@
 .expense-image {
   width: 60%;
 }
-.expense-caption {
-  width: 70%;
-}
+
 .expense-h1 {
-  color: #000000;
+  color: #6a391b;
   font-family: "Comic Neue";
 }
 
 .expense-img {
   height: 250px;
+}
+
+@media screen and (max-width: 1200px) {
+  .expense-section-one {
+    flex-direction: row;
+    gap: 40px;
+  }
+  .expense-content-container {
+    background-size: 100vw;
+    background-position: bottom;
+    margin: 10px -210px;
+    width: 80vw;
+  }
+  .expense-content,
+  .expense-section-one {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .expense-item-one,
+  .expense-item-two,
+  .expense-item-three {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+  }
+
+  .expense-h1 {
+    padding-top: 50px;
+  }
 }

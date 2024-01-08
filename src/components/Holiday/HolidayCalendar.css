@@ -9,6 +9,7 @@
   font-family: "Josefin Sans", sans-serif;
   color: #744827;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  height: 100%;
 }
 
 .header {
@@ -27,7 +28,7 @@
   cursor: pointer;
   font-size: 1.2em;
   color: #fff;
-  padding: 0 100px;
+  padding: 0 20px;
 }
 
 .calendar-table {
@@ -35,7 +36,6 @@
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
-  height: 100%;
 }
 
 .calendar-table th {
@@ -48,7 +48,6 @@
   border: 0.5px solid #ccc;
   padding: 5px;
   text-align: center;
-  position: relative;
 }
 
 .calendar-table td.selected {
@@ -60,7 +59,6 @@
 }
 
 .date-box {
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -71,7 +69,6 @@
 }
 
 .date {
-  position: absolute;
   top: 0;
   right: 0;
   margin-top: 3px;
@@ -91,7 +88,7 @@
   background-color: #ffd1cf;
   cursor: pointer;
   border-radius: 8px;
-  position: relative;
+
   font-family: "Kalam", cursive;
   transition: all 0.3s ease;
   padding: 5px;
@@ -103,10 +100,6 @@
   font-size: 17px;
 }
 
-.holiday-tooltip {
-  position: relative;
-}
-
 .tooltip-content {
   width: 120px;
   background-color: #3e2718;
@@ -114,8 +107,6 @@
   text-align: center;
   border-radius: 8px;
   padding: 10px;
-  position: absolute;
-  z-index: 100;
   left: 50%;
   transform: translate(-50%);
   opacity: 0;
@@ -181,9 +172,16 @@
   width: 80px;
   border-radius: 20px;
   cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .today-btn:hover {
-  background-color: #f2d9bf;
-  color: #482f25;
+  background-color: #684118;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .calendar {
+    width: 80vw;
+  }
 }

@@ -46,3 +46,8 @@ input:focus {
   display: flex;
   flex-direction: column;
 }
+
+.expense-error-message {
+  padding-top: 20px;
+  color: #fc534e;
+}

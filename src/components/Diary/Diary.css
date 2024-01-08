@@ -3,33 +3,37 @@
 
 .diary-container {
   display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
 }
 
-.diary-right {
-  padding: 0 3%;
+.diary-content-container {
+  display: flex;
+  flex-direction: column;
+  margin: 4% 5%;
   width: 100%;
 }
 
-.diary-header {
-  color: #000000;
+.diary-h1 {
+  color: #6a391b;
   font-family: "Comic Neue";
 }
 
 .diary-text {
-  width: 60%;
+  width: 100%;
 }
 
-.diary-content {
+.diary-h4 {
   font-weight: 400;
-  padding-bottom: 60px;
-  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-top: 40px;
 }
 
 /*holiday imgr*/
-.diary-head {
+.diary-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .diary-img1 {
@@ -39,8 +43,8 @@
 /*new*/
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 55% 50%;
+  display: flex;
+  column-gap: 40px;
 }
 
 .diary-app {
@@ -48,8 +52,8 @@
   flex-direction: column;
   justify-content: start;
   width: 80%;
-  min-height: 80vh;
-  background: rgb(255, 255, 255);
+  min-height: 100vh;
+  background: #ffffffad;
   text-align: center;
   border-radius: 10px;
   padding: 40px 20px;
@@ -64,6 +68,7 @@
   margin-bottom: 32px;
   display: flex;
   font-family: "Kalam", cursive;
+  padding: 0 20px;
 }
 
 .diary-input {
@@ -78,24 +83,12 @@
   font-size: 18px;
 }
 
-.diary-date-input {
-  border-radius: 4px;
-  padding: 10px;
-  border: 1px solid #ae7352;
-  height: 50px;
-  width: 160px;
-  font-family: "Kalam", cursive;
-  font-size: 18px;
-  color: #905939;
-}
-
 .diary-textarea {
   padding: 14px 32px 14px 16px;
-  margin-top: 15px;
   border-radius: 4px;
   border: 1px solid #ae7352;
-  width: 90%;
-  height: 400px;
+  width: 94%;
+  height: 450px;
 }
 
 .diary-button {
@@ -116,7 +109,6 @@
 .diary-container {
   display: flex;
   flex-direction: row;
-  position: relative;
 }
 
 .diary-row {
@@ -152,4 +144,35 @@
 .diary-date {
   font-size: 15px;
   margin-right: 5px;
+}
+
+.diary-item-box {
+  font-family: "Josefin Sans", sans-serif;
+  padding-top: 30px;
+  color: #6a391b;
+}
+
+@media only screen and (max-width: 1200px) {
+  .grid-container {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  .diary-content-container {
+    margin: 3% 10%;
+    display: flex;
+    margin: 0 -200px;
+    width: 90vw;
+    background-size: 100vw;
+    background-position: bottom;
+  }
+
+  .diary-app {
+    width: 80vw;
+  }
+
+  .diary-text {
+    width: 70%;
+    padding: 60px 0;
+  }
 }

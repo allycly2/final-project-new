@@ -6,10 +6,17 @@
   padding: 1.1rem;
   border-radius: 0.8rem;
   margin-bottom: 0.8rem;
+  cursor: pointer;
+}
+
+.income,
+.expense:hover {
+  transition: 0.6s;
+  transform: translateY(-0.15em);
 }
 
 .income {
-  background-color: #b0e8c5;
+  background-color: #dcf7ae;
   color: #5f4018;
   font-weight: 600;
   font-size: 18px;

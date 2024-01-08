@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
   useNavigate,
 } from "react-router-dom";
 import ToDoList from "./components/ToDoList/ToDoList";
@@ -14,18 +13,25 @@ import Sidebar from "./components/NavBar/Sidebar";
 import Holiday from "./components/Holiday/Holiday";
 import Login from "./components/User/Login";
 import Signup from "./components/User/Signup";
-import TopNavBar from "./components/NavBar/TopNavBar";
 import ExpenseTracker from "./components/ExpenseTracker/ExpenseTracker";
 import UserProfile from "./components/User/UserProfile";
 import backgroundImage from "./components/Image/image.png";
+import Image from "./components/Image/bkimage6.png";
 
 function MainApp() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  const handleButtonClick = (path) => {
-    navigate(path);
-  };
+  useEffect(() => {
+    const accessToken = localStorage.getItem("access_token");
+    if (accessToken) {
+      // User is logged in
+      setIsLoggedIn(true);
+    } else {
+      // User is not logged in, redirect to the login page
+      navigate("/login");
+    }
+  }, [navigate]);
 
   const handleLogout = () => {
     // Perform any logout-related actions (e.g., clear local storage, reset state)
@@ -36,6 +42,10 @@ function MainApp() {
 
   const styles = {
     backgroundImage: `url(${backgroundImage})`,
+  };
+
+  const style = {
+    Image: `url(${Image})`,
   };
 
   return (
@@ -51,12 +61,14 @@ function MainApp() {
             backgroundImage: "{image}",
           }}
         ></div>
+        <div></div>
+        <div className="main-logo">Great Plan</div>
         <div className="home-page-content">
           <h1 className="home-h1">Hello and Welcome</h1>
           <br></br>
           <p className="home-p">
-            Log in to continue your journey of self-expression, planning and
-            organization.
+            Embark on a transformative journey of effectively managing your
+            diary, schedule, and expenses.
           </p>
         </div>
       </div>

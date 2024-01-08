@@ -5,18 +5,23 @@ import { PersistGate } from "redux-persist/integration/react";
 import Main from "../Diary/Main";
 import "./Diary.css";
 import Sidebar from "../NavBar/Sidebar";
+import backgroundImage from "../Image/bkimage5.png";
 
 function Diary() {
+  const styles = {
+    backgroundImage: `url(${backgroundImage})`,
+  };
+
   return (
-    <div className="diary-container">
-      <div className="navigation">
+    <div className="diary-container" style={styles}>
+      <div className="diary-navigation">
         <Sidebar />
       </div>
-      <div className="diary-right">
-        <div className="diary-head">
+      <div className="diary-content-container">
+        <div className="diary-header">
           <div className="diary-text">
-            <h1 className="diary-header">Dear Diary</h1>
-            <h4 className="diary-content">
+            <h1 className="diary-h1">Diary</h1>
+            <h4 className="diary-h4">
               Create your own diary to capture the magic of your adventures and
               preserve cherished memories.
             </h4>

@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Signup&Login.css";
+import backgroundImage from "../Image/bkimage.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const accessToken = localStorage.getItem("access_token");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,9 +56,13 @@ const Login = () => {
     navigate("/login");
   };
 
+  const styles = {
+    backgroundImage: `url(${backgroundImage})`,
+  };
+
   return (
     <div className="login-form-container">
-      <ul class="circles">
+      <ul className="circles">
         <li></li>
         <li></li>
         <li></li>
@@ -70,12 +76,17 @@ const Login = () => {
       </ul>
 
       <div>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" style={styles} onSubmit={handleSubmit}>
           <div>
             <h1 className="logo">Great Plan</h1>
           </div>
+
           <div className="login-header">
-            <h2>Login</h2>
+            <p className="login-p">
+              Hello and welcome! Log in to embark on a transformative journey of
+              effectively managing your diary, schedule, and expenses.
+            </p>
+            <br></br>
           </div>
           <div className="form-row">
             <input
