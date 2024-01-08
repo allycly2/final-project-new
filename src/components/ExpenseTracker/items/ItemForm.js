@@ -61,7 +61,7 @@ const ItemForm = (props) => {
         <label htmlFor="date">Date</label>
         <input
           id="date"
-          type="text"
+          type="date"
           placeholder="Enter date..."
           value={enteredDate}
           onChange={dateHandler}
