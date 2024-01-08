@@ -15,7 +15,7 @@ const TodoListTask = ({ todo, toggleTodo }) => {
           onChange={handleTodoClick}
         />
       </label>
-      {todo.name}
+      <span className="tasks"> {todo.name}</span>
     </div>
   );
 };

@@ -1,23 +1,32 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ToDoFunction from "./ToDoFunction";
 import { v4 as uuidv4 } from "uuid";
 import "./ToDoList.css";
 import Sidebar from "../NavBar/Sidebar";
 
 function ToDoList() {
-  const [todos, setTodos] = useState([
-    /* { id: 1, name: "Todo1", completed: false }, */
-  ]);
+  const [todos, setTodos] = useState([]);
 
   const todoNameRef = useRef();
 
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const handleAddTodo = (e) => {
-    const name = todoNameRef.current.value;
-    if (name === "") return; //<-back to line16
+    e.preventDefault();
+    const name = todoNameRef.current.value.trim();
+    if (name === "") return;
     setTodos((prevTodos) => {
       return [...prevTodos, { id: uuidv4(), name: name, completed: false }];
     });
-    //↑console.log(todoNameRef.current.value);
     todoNameRef.current.value = null;
   };
 
@@ -32,30 +41,35 @@ function ToDoList() {
     const newTodos = todos.filter((todo) => !todo.completed);
     setTodos(newTodos);
   };
+
   return (
-    <div className="holiday-container">
+    <div className="container">
       <div className="navigation">
         <Sidebar />
       </div>
       <div className="todolist">
         <span className="todotext">Task </span>
         <br></br>
-        <input type="text" ref={todoNameRef} className="taskinput"></input>
-        <span className="todotext"></span>
-        <div>
-          <button className="ToDoButton" onClick={handleAddTodo}>
-            Add Task
-          </button>
-          <br></br>
-          <button className="ToDoButton" onClick={handleClear}>
-            Delete Task
-          </button>
-        </div>
+        <form onSubmit={handleAddTodo}>
+          <input type="text" ref={todoNameRef} className="taskinput"></input>
+          <div>
+            <button className="ToDoButton" type="submit">
+              Add Task
+            </button>
+            <br></br>
+            <button className="ToDoButton" onClick={handleClear}>
+              Delete Task
+            </button>
+          </div>
+        </form>
+        <br></br>
         <hr></hr>
+        <br></br>
         <div className="tasknum">
-          Tasks Left:{todos.filter((todo) => !todo.completed).length}
+          Tasks Left: {todos.filter((todo) => !todo.completed).length}
         </div>
-
+      </div>
+      <div className="wrapper">
         <ToDoFunction todos={todos} toggleTodo={toggleTodo} />
       </div>
     </div>

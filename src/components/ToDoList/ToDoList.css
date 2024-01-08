@@ -3,19 +3,38 @@
 } */
 
 @import url("https://fonts.googleapis.com/css?family=Schoolbell&v1");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Barlow+Condensed&family=Bebas+Neue&family=Comic+Neue&family=Josefin+Sans:wght@300;400&family=Kalam:wght@300&family=Mali:ital,wght@0,400;0,500;1,400&family=Marcellus&family=Roboto+Flex:opsz@8..144&family=Single+Day&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam");
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@1&family=League+Spartan:wght@400;500;700&family=Lemon&display=swap");
+
+.container {
+  background-image: url("./todo-back-row.jpg");
+  background-size: contain;
+  background-repeat: round;
+  display: flex;
+}
 
 .todolist {
+  margin: 4rem 3rem;
   font-size: 1rem;
   font-weight: bold;
-  border: 1px solid #4a3407;
-  padding: 2%;
+  /*   border: 3px solid #4a3407; */
+  padding: 9rem 2rem;
   gap: 2rem;
-  height: 100vh;
+  height: 80vh;
   width: 40vh;
   text-align: center;
-  color: #f1e9d9;
-  background-color: #925628;
+  font-family: "Lemon", serif;
+  color: #422800;
+  background-image: url(./todo.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   border-radius: 1rem;
+}
+
+.todotext {
+  font-size: 1.5rem;
 }
 
 .taskinput {
@@ -26,18 +45,29 @@
 }
 
 .todochecklist {
-  flex-wrap: wrap;
-  display: flex;
+  padding: 2.5rem;
   margin: 1rem;
-  padding: 5%;
+  height: 30vh;
   width: 30vh;
+  text-overflow: clip;
   font-family: "Schoolbell", arial, serif;
-  border: 0.1rem dashed white;
+  /* border: 0.1rem dashed black; */
+  background-image: url(./memo.png);
+  background-size: cover;
+  background-position: center;
 }
 
-.todos {
+.tasks {
   word-wrap: break-word;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
 .ToDoButton {
   border: 0.1rem solid #4a3407;
   background-color: #fbeee0;
@@ -47,13 +77,14 @@
   color: #422800;
   cursor: pointer;
   display: inline-block;
-  font-weight: bold;
   padding: 0 18px;
   text-align: center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+
+  font-family: "Lemon", serif;
 }
 
 .ToDoButton:hover {
