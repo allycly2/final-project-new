@@ -45,6 +45,7 @@
 .grid-container {
   display: flex;
   column-gap: 40px;
+  height: 100%;
 }
 
 .diary-app {
@@ -118,13 +119,14 @@
   align-items: center;
   margin: 4px auto;
   padding: 16px;
-  border-radius: 5px;
   width: 90%;
-  background: #a67152;
-  color: white;
+  background: #ffdac5;
+  color: #6b412b;
   font-family: "Kalam", cursive;
   cursor: pointer;
   font-size: 18px;
+  max-height: 30vh;
+  overflow: auto;
 }
 
 .diary-row:hover {
@@ -137,6 +139,7 @@
   color: #3b1d0c;
   font-weight: 600;
 }
+
 .delete {
   font-size: 22px;
 }
@@ -150,6 +153,7 @@
   font-family: "Josefin Sans", sans-serif;
   padding-top: 30px;
   color: #6a391b;
+  overflow: auto;
 }
 
 @media only screen and (max-width: 1200px) {

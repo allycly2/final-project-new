@@ -127,7 +127,9 @@ const UserProfile = () => {
           <>
             <p>Name: {user.name}</p>
             <p>Email: {user.email}</p>
-            <button onClick={handleEdit}>Edit</button>
+            <button className="profile-button" onClick={handleEdit}>
+              Edit
+            </button>
           </>
         )}
       </div>
