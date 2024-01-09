@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
 } from "react-router-dom";
 import ToDoList from "./components/ToDoList/ToDoList";
 import Diary from "./components/Diary/Diary";
@@ -20,24 +19,6 @@ import Image from "./components/Image/bkimage6.png";
 import Home from "./Home";
 
 function Apps() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const accessToken = localStorage.getItem("access_token");
-    if (accessToken) {
-      // User is logged in
-      setIsLoggedIn(true);
-    }
-  }, []);
-
-  const handleLogout = () => {
-    // Perform any logout-related actions (e.g., clear local storage, reset state)
-    setIsLoggedIn(false);
-    localStorage.removeItem("access_token");
-    navigate("/login");
-  };
-
   const styles = {
     backgroundImage: `url(${backgroundImage})`,
   };
@@ -50,7 +31,7 @@ function Apps() {
     <div className="App" style={styles}>
       <div className="nav">
         <div className="navBar-container">
-          <Sidebar isLoggedIn={isLoggedIn} logout={handleLogout} />
+          <Sidebar />
         </div>
       </div>
       <div className="content-container">
@@ -62,7 +43,11 @@ function Apps() {
         <div></div>
         <div className="main-logo">Great Plan</div>
         <div className="home-page-content">
-          <h1 className="home-h1">Hello and Welcome</h1>
+          <h1 className="home-h1">
+            <span class="title-word title-word-1">Hello </span>
+            <span class="title-word title-word-2">and </span>
+            <span class="title-word title-word-3">Welcome </span>
+          </h1>
           <br></br>
           <p className="home-p">
             Embark on a transformative journey of effectively managing your
