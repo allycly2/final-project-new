@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
+  useNavigate,
 } from "react-router-dom";
 import ToDoList from "./components/ToDoList/ToDoList";
 import Diary from "./components/Diary/Diary";
@@ -19,6 +20,24 @@ import Image from "./components/Image/bkimage6.png";
 import Home from "./Home";
 
 function Apps() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("access_token");
+    if (accessToken) {
+      // User is logged in
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    // Perform any logout-related actions (e.g., clear local storage, reset state)
+    setIsLoggedIn(false);
+    localStorage.removeItem("access_token");
+    navigate("/login");
+  };
+
   const styles = {
     backgroundImage: `url(${backgroundImage})`,
   };
@@ -31,7 +50,7 @@ function Apps() {
     <div className="App" style={styles}>
       <div className="nav">
         <div className="navBar-container">
-          <Sidebar />
+          <Sidebar isLoggedIn={isLoggedIn} logout={handleLogout} />
         </div>
       </div>
       <div className="content-container">

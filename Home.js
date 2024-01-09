@@ -22,7 +22,11 @@ function MainApp() {
             <img className="home-img" src={Icon} />
           </div>
           <div className="logo">
-            <h1>Great Plan</h1>
+            <h1>
+              <Link className="logo" to="/">
+                Great Plan
+              </Link>
+            </h1>
           </div>
         </div>
         <div>
@@ -42,21 +46,43 @@ function MainApp() {
       </div>
       <div className="home-section-one">
         <p>
-          At Great Plan, we believe in empowering individuals to take control of
-          their lives and achieve their goals. Great Plan provide you with a
-          comprehensive platform for managing your to-do lists, writing diaries,
-          and tracking your spending, all in one convenient place.
+          At{" "}
+          <span
+            style={{ color: "#6c3518", fontStyle: "italic", fontWeight: "600" }}
+          >
+            Great Plan
+          </span>
+          , we believe in empowering individuals to take control of their lives
+          and achieve their goals.{" "}
+          <span
+            style={{ color: "#6c3518", fontStyle: "italic", fontWeight: "600" }}
+          >
+            Great Plan
+          </span>{" "}
+          provide you with a comprehensive platform for managing your to-do
+          lists, writing diaries, tracking your spending, and exploring holidays
+          worldwide, all in one convenient place.
         </p>
       </div>
       <div className="home-question">
-        <h2>What are the benefits of using Great Plan?</h2>
+        <h2 className="home-question-h2">
+          What are the benefits of using Great Plan?
+        </h2>
       </div>
-      <div className="home-question">
-        <h2>Organize. Reflect. Succeed.</h2>
+      <div className="home-answer">
+        <h2 className="home-answer-h2">
+          <span class="title-word title-word-1">Organize. </span>
+          <span class="title-word title-word-2">Reflect. </span>
+          <span class="title-word title-word-3">Succeed. </span>
+        </h2>
       </div>
       <div className="home-section-two">
         <div className="section-two-text">
-          <h4>Stay organized</h4>
+          <h4
+            style={{ fontWeight: "600", fontSize: "20px", lineHeight: "40px" }}
+          >
+            Stay organized
+          </h4>
           <p>
             Streamline your daily tasks and activities, and track your progress
             to maximize your efficiency and accomplish more.
@@ -77,7 +103,11 @@ function MainApp() {
           ></img>
         </div>
         <div className="section-three-text">
-          <h4>Reflect and grow</h4>
+          <h4
+            style={{ fontWeight: "600", fontSize: "20px", lineHeight: "40px" }}
+          >
+            Reflect and grow
+          </h4>
           <p>
             Capture your thoughts, emotions, and experiences in your personal
             diary, fostering self-reflection and personal growth.
@@ -86,7 +116,11 @@ function MainApp() {
       </div>
       <div className="home-section-four">
         <div className="section-four-text">
-          <h4>Manage your finances</h4>
+          <h4
+            style={{ fontWeight: "600", fontSize: "20px", lineHeight: "40px" }}
+          >
+            Manage your finances
+          </h4>
           <p>
             Keep tabs on your expenses, and gain insights into your spending
             habits to make better financial decisions.
@@ -97,6 +131,25 @@ function MainApp() {
             className="section-four-img"
             src="https://media4.giphy.com/media/NyniJ2Nf2ZzlE8GYsl/200w.gif?cid=6c09b9523j7abxgvzohpe1qdk92g8xnw8qhofh8ykac1orxv&ep=v1_gifs_search&rid=200w.gif&ct=g"
           ></img>
+        </div>
+      </div>
+      <div className="home-section-five">
+        <div>
+          <img
+            className="section-five-img"
+            src="https://cdn.pixabay.com/animation/2023/06/13/15/13/15-13-19-191_512.gif"
+          ></img>
+        </div>
+        <div className="section-five-text">
+          <h4
+            style={{ fontWeight: "600", fontSize: "20px", lineHeight: "40px" }}
+          >
+            Discover holidays worldwide
+          </h4>
+          <p>
+            Explore our integrated calendar feature to search for holidays
+            across different countries and plan your vacations accordingly.
+          </p>
         </div>
       </div>
       <div className="footer">
