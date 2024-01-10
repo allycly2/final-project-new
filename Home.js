@@ -30,7 +30,7 @@ function MainApp() {
           </div>
         </div>
         <div>
-          <Link to="/login">
+          <Link to="/Diary">
             <button className="home-btn">Go to Web App</button>
           </Link>
         </div>
